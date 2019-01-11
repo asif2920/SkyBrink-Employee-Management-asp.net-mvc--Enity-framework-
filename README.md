@@ -65,7 +65,7 @@ Give a name like: MyModel, Select EF Designer from Database, click next, Select 
 Now our target is to load the index dashboard where it will show two bar charts with number of students by department wise and number of teachers department wise.
 For doing that, I  used rest API, AJAX and google chart. Index.cshtml has the code for ajax call and populate the charts for the dashboard. I created two additional classes TeacherResult and StudentResult for the ease of our work to format Json data. Two controllers were used: Home and Admin.
 
-Some design specifications are as follows:
+Some design specifications are as follows: (Images are added to the project). There is a PDF attached as well with detailed documentation.
 Dashboard 1(Public): 
  
 Dashboard1 (Public):
