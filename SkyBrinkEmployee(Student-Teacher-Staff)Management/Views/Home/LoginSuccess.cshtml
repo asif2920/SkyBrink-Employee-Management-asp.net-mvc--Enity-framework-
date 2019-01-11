@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "LoginSuccess";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Result Visualization</title>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                url: '@Url.Action("GetEmployeeeResult", "Admin")',
+                success: function (result) {
+                    google.charts.load('current', {
+                        'packages': ['corechart']
+                    });
+                    google.charts.setOnLoadCallback(function () {
+                        drawStudentsColumChart(result);
+                    });
+                }
+            });
+
+             $.ajax({
+                type: "POST",
+                dataType: "json",
+                contentType: "application/json",
+                url: '@Url.Action("GetRevenueResult", "Admin")',
+                success: function (result) {
+                    google.charts.load('current', {
+                        'packages': ['corechart']
+                    });
+                    google.charts.setOnLoadCallback(function () {
+                        drawRevenuePieChart(result);
+                    });
+                }
+            });
+
+        });
+        function drawStudentsColumChart(result) {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Name');
+            data.addColumn('number', 'Count');
+            var dataArray = [];
+
+            $.each(result, function (i, obj) {
+                dataArray.push([obj.dept, obj.count]);
+            });
+            data.addRows(dataArray);
+
+            var columnChartOptions = {
+                title: "Employee Summary",
+                width: 1000,
+                height: 400,
+                bar: { groupWidth: "20%" },
+            };
+
+            var columnChart = new google.visualization.ColumnChart(document
+                .getElementById('columnchart_div'));
+
+            columnChart.draw(data, columnChartOptions);
+        }
+        function drawRevenuePieChart(result) {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Name');
+            data.addColumn('number', 'Marks Obtained');
+            var dataArray = [];
+
+            $.each(result, function (i, obj) {
+                dataArray.push([obj.dept, obj.count]);
+            });
+            data.addRows(dataArray);
+
+            var columnChartOptions = {
+                title: "Company Revenue",
+                width: 1000,
+                height: 400,
+                bar: { groupWidth: "20%" },
+            };
+
+            var columnChart = new google.visualization.PieChart(document
+                .getElementById('piechart_div'));
+
+            columnChart.draw(data, columnChartOptions);
+        }
+
+    </script>
+</head>
+<body>
+    <div style="width:800px; margin:0 auto;" id="columnchart_div">
+    </div>
+    <div style="width:800px; margin:0 auto;" id="piechart_div">
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "TechnicalDetails";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1><strong>Technical Details of this project</strong></h1>
+        <p>This is a basic management project with ASP.net MVC, Microsoft SQL Server and Entity framework.</p>
+        <p>Details of this projet are as follows:</p>
+        <p>
+            Database and Tables:
+            <ul>
+                -
+                <b>Database</b>: Only one database is used, name is "MyDatabase"
+            </ul>
+            <ul>
+                -
+                <b>Tables</b>: 5 tables are used: User, Employee, Teacher, Student and Reveue
+            </ul>
+        </p>
+
+        <p><b>Entity Framework and Input validation</b>:
+        <ul>
+            -<b>Entity Framework</b>: Entity framework 6 is used.
+        </ul>
+        <ul>
+            -<b>Input Validation</b>: For each of the input forms, Input validation is checked.
+        </ul>
+        </p>
+        <p> <b>Password Hashing and existance of email address check</b>:
+        <ul>
+            -<b>Password Hashing</b>: After giving input into the form, before writing to database, the pasword was encrypted using password hashing.
+        </ul>
+        <ul>
+            -<b> Email Address Check</b>: For signup, it also checks that the email address is already used or not.
+        </ul>
+        </p>
+        <p><b>Dashboard</b>:
+        2 dashboards are used.
+        <ul>
+            <b>For all</b>: Two column charts are shown with the current growth of Students and faculty members department wise.
+            Values are loaded dynamically from database
+        </ul>
+        <ul><b>Registered User</b>: If you register with us, after successful login, you will see one column chart (Employe-department wise) and Pie chart (Company Revenue) for the previous year.</ul>
+        </p>
+        <p>
+            <b>Crud Operation</b>:( This functionality is achieved by implementing restful API)
+            <ul>
+                -
+                <b>Employee</b>: All the employee details are shown using a jquery data table. You can add employees, edit information and delete as well.
+            </ul>
+            <ul>
+                -
+                <b>Teacher</b>: All the teacher details are shown using a jquery data table. You can add teachers, edit information and delete as well.
+            </ul>
+            <ul>
+                - <b>Student</b>: All the student details are shown using a jquery data table. You can add students, edit information and delete as well.
+            </ul>
+        </p>
+        <p><b>View</b>: Custome template is used for viewing purpose</p>
+
+        <p> For more details, please visit to the GitHub repository(asif2920). </p>
+    </div>
+
+</body>
+</html>
+
